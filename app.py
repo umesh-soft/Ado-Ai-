@@ -2,73 +2,95 @@ import streamlit as st
 
 st.set_page_config(page_title="DesiAds AI", layout="centered")
 
-st.title("🚀 DesiAds AI - Free Ads Generator")
+st.title("🚀 DesiAds AI - Smart Free Ads Generator")
 
-product = st.text_input("Enter Product / Service Name")
+product = st.text_input("Enter Product Name")
+offer = st.text_input("Enter Special Offer / Feature (Example: 50% Off, Free Delivery)")
 
 language = st.selectbox("Select Language", ["English", "Hindi", "Hinglish"])
 
-platform = st.selectbox("Select Platform", [
-    "Facebook Ads",
-    "Instagram Ads",
-    "Google Ads",
-    "YouTube Ads",
-    "LinkedIn Ads"
-])
+if st.button("Generate Ads"):
+    if product and offer:
 
-tone = st.selectbox("Select Tone", [
-    "Professional",
-    "Emotional",
-    "Aggressive Sales",
-    "Friendly"
-])
-
-if st.button("Generate Ad"):
-    if product:
         if language == "Hindi":
-            ad = f"""
-Primary Text:
-Apne business ko grow kare {product} ke saath!
 
-Headline:
-Sabse Behtar {product}
+            ad1 = f"""
+🔥 क्या आप {product} ढूंढ रहे हैं?
 
-Description:
-Limited samay ke liye khaas offer.
+अब पाएँ {product} सिर्फ {offer} के साथ!
 
-CTA:
-Abhi Kharide 🚀
+✔ उच्च गुणवत्ता
+✔ भरोसेमंद सेवा
+✔ सीमित समय का ऑफर
+
+👉 अभी खरीदें और लाभ उठाएँ!
 """
+
+            ad2 = f"""
+✨ मौका हाथ से न जाने दें!
+
+{product} अब उपलब्ध है {offer} के साथ।
+
+आज ही ऑर्डर करें और शानदार डील पाएं।
+
+🚀 अभी ऑर्डर करें!
+"""
+
         elif language == "Hinglish":
-            ad = f"""
-Primary Text:
-Apna business boost karo {product} ke saath!
 
-Headline:
-Best {product} Live Hai!
+            ad1 = f"""
+🔥 Kya aap best {product} dhund rahe ho?
 
-Description:
-Limited time deal boss!
+Ab milega {product} sirf {offer} ke saath!
 
-CTA:
-Order Now 🔥
+✔ Premium Quality
+✔ Trusted by Customers
+✔ Limited Time Deal
+
+👉 Order Now!
 """
+
+            ad2 = f"""
+✨ Ye deal miss mat karo!
+
+{product} ab available hai {offer} ke saath.
+
+Aaj hi kharido aur fayda uthao!
+
+🚀 Shop Now!
+"""
+
         else:
-            ad = f"""
-Primary Text:
-Boost your business with {product}!
 
-Headline:
-Best {product} Available Now!
+            ad1 = f"""
+🔥 Looking for the best {product}?
 
-Description:
-Limited time offer.
+Now get {product} with {offer}!
 
-CTA:
-Shop Now 🚀
+✔ Premium Quality
+✔ Trusted Brand
+✔ Limited Time Offer
+
+👉 Shop Now!
 """
 
-        st.success("Ad Generated Successfully!")
-        st.text_area("Your Ad Copy", ad, height=250)
+            ad2 = f"""
+✨ Don’t miss this amazing deal!
+
+Grab your {product} today with {offer}.
+
+Limited stock available.
+
+🚀 Buy Now!
+"""
+
+        st.success("2 Ads Generated Successfully!")
+
+        st.subheader("Ad Version 1")
+        st.text_area("", ad1, height=200)
+
+        st.subheader("Ad Version 2")
+        st.text_area(" ", ad2, height=200)
+
     else:
-        st.warning("Please enter product name.")
+        st.warning("Please enter both product name and offer.")
