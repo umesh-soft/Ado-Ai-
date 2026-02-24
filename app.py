@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Ado AI Generator", layout="centered")
 
-st.title(" Ado AI - Structured Ads Generator")
+st.title(" Ado AI - Ads Generator")
 
 product = st.text_input("Enter Product Name")
 offer = st.text_input("Enter Special Offer (Example: 15% Off, Free Delivery)")
